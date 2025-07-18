@@ -14,23 +14,16 @@
  * governing permissions and limitations under the Licence.
  */
 
-package eu.europa.ec.euidi.verifier.presentation.model
+package eu.europa.ec.euidi.verifier.core.di
 
-import eu.europa.ec.euidi.verifier.domain.config.AttestationType
-import eu.europa.ec.euidi.verifier.domain.config.Mode
-import eu.europa.ec.euidi.verifier.domain.config.model.ClaimItem
-import eu.europa.ec.euidi.verifier.presentation.utils.CommonParcelable
-import eu.europa.ec.euidi.verifier.presentation.utils.CommonParcelize
+import eu.europa.ec.euidi.verifier.domain.config.ConfigProvider
+import eu.europa.ec.euidi.verifier.domain.config.ConfigProviderImpl
+import org.koin.core.annotation.Module
+import org.koin.core.annotation.Single
 
-@CommonParcelize
-data class RequestedDocsHolder(
-    val items: List<RequestedDocumentUi>
-) : CommonParcelable
+@Module
+class ConfigModule {
 
-@CommonParcelize
-data class RequestedDocumentUi(
-    val id: String,
-    val documentType: AttestationType,
-    val mode: Mode,
-    val claims: List<ClaimItem> = emptyList()
-) : CommonParcelable
+    @Single
+    fun provideConfigProvider(): ConfigProvider = ConfigProviderImpl()
+}

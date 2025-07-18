@@ -17,20 +17,21 @@
 package eu.europa.ec.euidi.verifier.presentation.model
 
 import eu.europa.ec.euidi.verifier.domain.config.AttestationType
-import eu.europa.ec.euidi.verifier.domain.config.Mode
-import eu.europa.ec.euidi.verifier.domain.config.model.ClaimItem
 import eu.europa.ec.euidi.verifier.presentation.utils.CommonParcelable
 import eu.europa.ec.euidi.verifier.presentation.utils.CommonParcelize
 
+typealias ClaimKey = String
+typealias ClaimValue = String
+
 @CommonParcelize
-data class RequestedDocsHolder(
-    val items: List<RequestedDocumentUi>
+data class ReceivedDocsHolder(
+    val address: String,
+    val items: List<ReceivedDocumentUi>
 ) : CommonParcelable
 
 @CommonParcelize
-data class RequestedDocumentUi(
+data class ReceivedDocumentUi(
     val id: String,
     val documentType: AttestationType,
-    val mode: Mode,
-    val claims: List<ClaimItem> = emptyList()
+    val claims: Map<ClaimKey, ClaimValue> = emptyMap()
 ) : CommonParcelable

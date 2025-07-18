@@ -30,6 +30,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
             platformModule(),
             PreferencesModule().module,
             LoggerModule().module,
+            ConfigModule().module,
             ProviderModule().module,
             InteractorModule().module,
             defaultModule // needed for generated viewModels
