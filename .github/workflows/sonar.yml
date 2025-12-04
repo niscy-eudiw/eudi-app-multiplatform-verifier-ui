@@ -8,7 +8,7 @@ on:
 
 jobs:
    SAST_caller:
-      uses: eu-digital-identity-wallet/eudi-infra-ci/.github/workflows/sast_action_android_cov.yml@feat/android_sast_update_source_parameters
+      uses: eu-digital-identity-wallet/eudi-infra-ci/.github/workflows/sast_action_android_cov.yml@main
       with:
         source_dirs: 'iosVerifierApp,verifierApp' 
       secrets:
