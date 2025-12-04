@@ -8,7 +8,9 @@ on:
 
 jobs:
    SAST_caller:
-      uses: eu-digital-identity-wallet/eudi-infra-ci/.github/workflows/sast_action_android_cov.yml@main
+      uses: eu-digital-identity-wallet/eudi-infra-ci/.github/workflows/sast_action_android_cov.yml@feat/android_sast_update_source_parameters
+      with:
+        source_dirs: 'iosVerifierApp,verifierApp' 
       secrets:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
